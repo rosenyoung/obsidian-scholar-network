@@ -1,5 +1,7 @@
 # Obsidian Scholar Network
 
+[中文说明](README_CN.md)
+
 > Build an interactive coauthorship network inside Obsidian — see who defines a topic, who collaborates with whom, and which scholars bridge separate research communities.
 
 ![Scholar Network Screenshot](screenshots/network-graph.png)

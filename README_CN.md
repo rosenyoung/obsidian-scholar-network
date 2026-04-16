@@ -1,5 +1,7 @@
 # Obsidian Scholar Network
 
+[English README](README.md)
+
 > 用 Obsidian 搭建一张可交互的学术合作网络——看清谁在定义一个研究主题、谁和谁紧密合作、谁是连接不同社群的桥梁。
 
 ![Scholar Network 截图](screenshots/network-graph.png)
