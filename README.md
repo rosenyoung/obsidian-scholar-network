@@ -53,14 +53,14 @@ Repeat steps 1–3 for each scholar. After 5–10 scholars you will start seeing
 
 ### Prerequisites
 
-| Tool | Purpose | Required? |
-|------|---------|-----------|
-| [Obsidian](https://obsidian.md/) | Note-taking environment | Yes |
-| [Dataview](https://github.com/blacksmithgu/obsidian-dataview) plugin | Powers the Dashboard queries | Yes |
-| [Obsidian Web Clipper](https://obsidian.md/clipper) | Captures scholar pages as Markdown | Yes |
-| [Python 3.10+](https://www.python.org/) | Runs the visualization script | Yes |
-| Any LLM (ChatGPT, Claude, Gemini, etc.) | Processes clippings into structured notes | Yes |
-| [Templater](https://github.com/SilasKnobel/Templater) plugin | Auto-fills dates in the scholar template | Optional |
+| Tool                                                              | Purpose                                   | Required? |
+| ----------------------------------------------------------------- | ----------------------------------------- | --------- |
+| [Obsidian](https://obsidian.md/)                                     | Note-taking environment                   | Yes       |
+| [Dataview](https://github.com/blacksmithgu/obsidian-dataview) plugin | Powers the Dashboard queries              | Yes       |
+| [Obsidian Web Clipper](https://obsidian.md/clipper)                  | Captures scholar pages as Markdown        | Yes       |
+| [Python 3.10+](https://www.python.org/)                              | Runs the visualization script             | Yes       |
+| Any LLM (ChatGPT, Claude, Gemini, etc.)                           | Processes clippings into structured notes | Yes       |
+| [Templater](https://github.com/SilasKnobel/Templater) plugin         | Auto-fills dates in the scholar template  | Optional  |
 
 ### Step 1: Copy the starter files into your vault
 
@@ -73,6 +73,7 @@ vault-starter/Agent Prompt/ →  YourVault/Agent Prompt/
 ```
 
 After copying, your vault should contain:
+
 - `Scholars/_Scholar Network.md` — the Dataview dashboard (works automatically)
 - `Scholars/_Scholar Topic Vocabulary.md` — the topic vocabulary (you will customize this)
 - `Scholars/_Topic Maps/` — empty folder for future topic-level index notes
@@ -95,12 +96,13 @@ Open `Scholars/_Scholar Topic Vocabulary.md`. It ships with a **financial econom
 This is where the system comes alive.
 
 1. **Clip a scholar page.** Go to any scholar's Google Scholar profile (or ORCID, or personal website) and use the Obsidian Web Clipper to save it. The raw markdown will land in your `Clippings/` folder.
-
 2. **Feed it to an LLM.** Open the clipping and `Agent Prompt/Scholar-profiler.md` in your AI tool of choice. Ask the AI something like:
 
    > "Use Scholar-profiler.md to create a scholar profile from this clipping."
+   >
 
    The AI will:
+
    - Parse all papers and coauthors from the clipping
    - Deduplicate repeated entries (Google Scholar often lists the same paper multiple times)
    - Rank coauthors by number of joint papers and keep the top 20
@@ -108,9 +110,7 @@ This is where the system comes alive.
    - Assign a `role` (gatekeeper, active, emerging, or peripheral)
    - Choose 5 representative papers
    - Write a brief profile and notes section
-
 3. **Save the output** as `Scholars/Full Name.md` in your vault. Review the result — the AI handles the tedious extraction work, but your expert judgment on topics, role, and the Notes section is what makes the note truly valuable.
-
 4. **Check the dashboard.** Open `Scholars/_Scholar Network.md` in Obsidian. The Dataview queries update automatically — you should see your new scholar appear in the tables.
 
 > **Tip:** You do not need to fill every field perfectly on the first pass. Many scholar notes start as stubs — a name, one or two topics, a few coauthors. As you read more papers and attend more conferences, you will naturally fill in the details. The beauty of wikilinks is that even a stub note creates a visible node in the graph.
@@ -204,6 +204,7 @@ Here is a concrete example. These three topics all belong to the family `Pricing
 - `demand-based pricing`
 
 In the network graph:
+
 - They share a **blue color family** — different shades, but visually related
 - They are connected by **weak hidden layout links** that keep them in the same region
 - But **coauthorship edges still dominate** — the layout reflects real collaboration, not just category labels
@@ -222,12 +223,12 @@ If you want to override a family's color, add a `{color=#HEX}` tag to the headin
 
 The `examples/` folder contains real scholar notes illustrating different use cases:
 
-| Example | What it demonstrates |
-|---------|---------------------|
-| [Eugene Fama](examples/Eugene%20Fama.md) | A **gatekeeper** — the most cited finance scholar, with detailed profile and extensive notes |
-| [Kenneth French](examples/Kenneth%20French.md) | A **stub** — minimal note with just one coauthor, but still a valid and useful node in the network |
-| [Kumar Venkataraman](examples/Kumar%20Venkataraman.md) | An **active scholar** — rich coauthor structure showing a real research cluster |
-| [Stacey Jacobsen](examples/Stacey%20Jacobsen.md) | A **cross-topic bridge** — genuinely spans market microstructure and corporate finance |
+| Example                                             | What it demonstrates                                                                                     |
+| --------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| [Eugene Fama](examples/Eugene%20Fama.md)               | A**gatekeeper** — the most cited finance scholar, with detailed profile and extensive notes       |
+| [Kenneth French](examples/Kenneth%20French.md)         | A**stub** — minimal note with just one coauthor, but still a valid and useful node in the network |
+| [Kumar Venkataraman](examples/Kumar%20Venkataraman.md) | An**active scholar** — rich coauthor structure showing a real research cluster                    |
+| [Stacey Jacobsen](examples/Stacey%20Jacobsen.md)       | A**cross-topic bridge** — genuinely spans market microstructure and corporate finance             |
 
 These examples are documentation only. They are not used by the visualization script unless you copy them into your vault's `Scholars/` folder.
 
@@ -259,13 +260,6 @@ See [docs/customization.md](docs/customization.md) for detailed guidance on:
 - Adjusting topic and family clustering strength
 - Adapting the Scholar Profiler prompt to a new discipline
 - Changing node sizing and tooltip content
-
----
-
-## Screenshots
-
-> **Note:** The `screenshots/` folder currently uses a single published image:
-> - `network-graph.png` — the interactive network visualization
 
 ---
 
